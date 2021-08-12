@@ -1,0 +1,19 @@
+{
+  "id": 0,
+  "category":
+  {
+    "id": 1,
+    "name": "Filhote"
+  },
+  "name": "Channel",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 2021,
+      "name": "sta - Semana do Teste de Api"
+    }
+  ],
+  "status": "available"
+}
