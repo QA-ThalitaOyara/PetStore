@@ -1,0 +1,19 @@
+{
+  "id": 15203568,
+  "category":
+  {
+    "id": 1,
+    "name": "SDAD546054654A"
+  },
+  "name": "Channels",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 2021,
+      "name": "sta - Semana do Teste de Api"
+    }
+  ],
+  "status": "SOLD"
+}
