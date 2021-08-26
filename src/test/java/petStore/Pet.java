@@ -26,29 +26,49 @@ public class Pet {
   }
 
   // Incluir - Create - Post
-  @Test  // Identifica o método ou função como um teste para o TestNG
+  @Test(priority = 1)  // Identifica o método ou função como um teste para o TestNG
   public void incluirPet() throws IOException {
     String jsonBody = lerJson("db/pet01.json");
-
-    // Sintaxe Gherkin
-    // Dado - Quando - Então
-    // Given - When - Then
 
     given() // Dado
             .contentType("application/json") // comum em API REST - antigas era "text/xml"
             .log().all()
             .body(jsonBody)
-    .when()  // Quando
+            .when()  // Quando
             .post(uri)
-    .then()  // Então
+            .then()  // Então
             .log().all()
             .statusCode(200)
             .body("name", is("Channels"))
             .body("status", is("available"))
-            .body("category.name", is ("Filhote 02")) //quando voi checar um elemento que está entre pareteses, posso usar o IS, se estiver entre couchetes, tenho que usar o "contains", como na verificação a baixo.
+            .body("category.name", is("SDAD546054654A")) //quando voi checar um elemento que está entre pareteses, posso usar o IS, se estiver entre couchetes, tenho que usar o "contains", como na verificação a baixo.
             .body("tags.name", contains("sta - Semana do Teste de Api"))
     ;
+  }
+    @Test (priority = 2)
+    public void consultarPet() throws IOException {
 
+      String petId = "15203568";
+      String token =
+      given() // Dado
+              .contentType("application/json") // comum em API REST - antigas era "text/xml"
+              .log().all()
+
+              .when()  // Quando
+                .get(uri + "/" + petId)
+
+              .then()  // Então
+                .log().all()
+               .statusCode(200)
+               .body("name", is("Channels"))
+               .body("status", is("available"))
+               .body("category.name", is ("SDAD546054654A")) //quando voi checar um elemento que está entre pareteses, posso usar o IS, se estiver entre couchetes, tenho que usar o "contains", como na verificação a baixo.
+               .body("tags.name", contains("sta - Semana do Teste de Api"))
+              .extract()
+              .path("category.name")
+      ;
+
+      System.out.println("O Token é " + token);
   }
 
 }
