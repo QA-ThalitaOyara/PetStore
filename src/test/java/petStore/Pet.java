@@ -35,9 +35,9 @@ public class Pet {
             .contentType("application/json") // comum em API REST - antigas era "text/xml"
             .log().all()
             .body(jsonBody)
-            .when()  // Quando
+    .when()  // Quando
             .post(uri)
-            .then()  // Então
+    .then()  // Então
             .log().all()
             .statusCode(200)
     ;
